@@ -1,6 +1,7 @@
-@extends('layouts.app')
-
-@section('content')
+<x-auth-layout>
+    <x-slot name="title">
+        - عضویت در سایت
+    </x-slot>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -74,4 +75,4 @@
         </div>
     </div>
 </div>
-@endsection
+</x-auth-layout>

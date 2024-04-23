@@ -21,6 +21,7 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::group(['prefix' => 'admin'], function ($router) {
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function ($router) {
     $router->get('/', \App\Livewire\Admin\Admin\Index::class);
+    $router->get('/users', \App\Livewire\Admin\Users\Index::class);
 });
