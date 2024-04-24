@@ -1,8 +1,9 @@
 <table class="table table-bordered">
     <div class="row">
         <div class="col-md-6">
-            <button type="button" class="btn btn-primary mb-3 rounded-5"><i class="fa-duotone fa-user-plus"></i> افزودن کاربر جدید </button>
+            <button type="button" class="btn btn-primary mb-3 rounded-5" data-bs-toggle="modal" data-bs-target="#Modal"><i class="fa-duotone fa-user-plus"></i> افزودن کاربر جدید </button>
             <button type="button" class="btn btn-danger mb-3 rounded-5 ms-2"><i class="fa-duotone fa-trash"></i> سطل زباله 0 </button>
+            @livewire('admin.users.create')
         </div>
         <div class="col-md-6">
             <from>
@@ -39,4 +40,5 @@
             </tr>
         @endforeach
     </tbody>
+
 </table>
