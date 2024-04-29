@@ -5,6 +5,7 @@ namespace App\Livewire\Admin\Users;
 use App\Models\User;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\ImageManager;
+use Livewire\Attributes\On;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -22,6 +23,8 @@ class Create extends Component
     #[Validate('required|min:8')]
     public $password;
     public $image;
+    public $users;
+    protected $listeners = ['dataCreated' => 'saveUser'];
 
     public function updated($name): void
     {
@@ -38,7 +41,7 @@ class Create extends Component
             ]);
         }
         $this->resetInput();
-        $this->dispatch('close-modal');
+        $this->dispatch('userCreated');
     }
 
     public function saveImage($file)
@@ -61,19 +64,17 @@ class Create extends Component
             return "";
         }
     }
-    public function closeModal(): void
-    {
-        $this->resetInput();
-    }
 
     public function resetInput(): void
     {
+        $this->resetValidation();
         $this->name = '';
         $this->email = '';
         $this->mobile = '';
         $this->password = '';
         $this->image = '';
     }
+
     public function render(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View|\Illuminate\Contracts\Foundation\Application
     {
         return view('livewire.admin.users.create');
