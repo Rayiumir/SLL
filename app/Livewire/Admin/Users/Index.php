@@ -25,9 +25,13 @@ class Index extends Component
     {
         $this->users = User::where('name', 'like', '%' . $this->search . '%')->get();
     }
+
     public function deleteUser($id): void
     {
-        User::destroy($id);
+        $user = User::find($id);
+        $user->delete();
+        $this->dispatch('userCreated');
+
     }
 
     public function render(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View|\Illuminate\Contracts\Foundation\Application

@@ -2,7 +2,8 @@
 <div class="row">
     <div class="col-md-6">
         <button type="button" class="btn btn-primary mb-3 rounded-5" data-bs-toggle="modal" data-bs-target="#Modal"><i class="fa-duotone fa-user-plus"></i> افزودن کاربر جدید </button>
-        <button type="button" class="btn btn-danger mb-3 rounded-5 ms-2"><i class="fa-duotone fa-trash"></i> سطل زباله 0 </button>
+        <a href="{{ route('users.trash') }}" type="button" class="btn btn-danger mb-3 rounded-5 ms-2"><i class="fa-duotone fa-trash"></i> سطل زباله
+            {{\App\Models\User::onlyTrashed()->count()}} </a>
         <livewire:admin.users.create></livewire:admin.users.create>
     </div>
     <div class="col-md-6">
@@ -27,7 +28,7 @@
     </thead>
     <tbody>
         @foreach($users as $row)
-            <tr wire:ignore>
+            <tr>
                 <th scope="row">{{$loop->index+1}}</th>
                 <td>
                     <figure>
@@ -41,8 +42,8 @@
                 <td>تست</td>
                 <td>{{$row->created_at}}</td>
                 <td class="text-center">
-                    <a href="{{ route('users.edit', $row->id) }}" type="button" class="btn btn-secondary mb-3 rounded-5 btn-sm"><i class="fa-duotone fa-edit"></i></a>
-                    <button type="button" class="btn btn-danger mb-3 rounded-5 btn-sm" wire:click="deleteUser({{$row->id}})"><i class="fa-duotone fa-trash"></i></button>
+                    <a href="{{ route('users.edit', $row->id) }}" type="button" class="btn btn-secondary mb-3 rounded-5 btn-sm" title="ویرایش کاربر"><i class="fa-duotone fa-edit"></i></a>
+                    <button type="button" class="btn btn-danger mb-3 rounded-5 btn-sm" wire:click="deleteUser({{$row->id}})" title="انتقال به زباله دان"><i class="fa-duotone fa-trash"></i></button>
                 </td>
             </tr>
         @endforeach

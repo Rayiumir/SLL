@@ -32,7 +32,6 @@
     <script src="{{asset('js/bootstrap.bundle.min.js')}}"></script>
     <script src="{{asset('js/main.js')}}"></script>
     <script src="{{asset('js/toaster.min.js')}}"></script>
-    <script src="{{asset('js/ckeditor.js')}}"></script>
 
     <script>
         @if(Session::has('message'))

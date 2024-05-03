@@ -23,7 +23,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function ($router) {
     $router->get('/', \App\Livewire\Admin\Admin\Index::class);
-    $router->get('/users', \App\Livewire\Admin\Users\Index::class);
+    $router->get('/users', \App\Livewire\Admin\Users\Index::class)->name('users.index');
     $router->get('/users/create', \App\Livewire\Admin\Users\Create::class);
     $router->get('/users/edit/{id}', \App\Livewire\Admin\Users\Edit::class)->name('users.edit');
+    $router->get('/users/trash', \App\Livewire\Admin\Users\Trash::class)->name('users.trash');
 });
