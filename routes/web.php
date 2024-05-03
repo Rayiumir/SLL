@@ -25,4 +25,5 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function ($router) {
     $router->get('/', \App\Livewire\Admin\Admin\Index::class);
     $router->get('/users', \App\Livewire\Admin\Users\Index::class);
     $router->get('/users/create', \App\Livewire\Admin\Users\Create::class);
+    $router->get('/users/edit/{id}', \App\Livewire\Admin\Users\Edit::class)->name('users.edit');
 });

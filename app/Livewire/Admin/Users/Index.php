@@ -6,7 +6,7 @@ use App\Models\User;
 use Livewire\Attributes\On;
 use Livewire\Component;
 
-#[On('refresh')]
+
 class Index extends Component
 {
     public $users;

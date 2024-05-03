@@ -41,7 +41,7 @@
                 <td>تست</td>
                 <td>{{$row->created_at}}</td>
                 <td class="text-center">
-                    <button type="button" class="btn btn-secondary mb-3 rounded-5 btn-sm"><i class="fa-duotone fa-edit"></i></button>
+                    <a href="{{ route('users.edit', $row->id) }}" type="button" class="btn btn-secondary mb-3 rounded-5 btn-sm"><i class="fa-duotone fa-edit"></i></a>
                     <button type="button" class="btn btn-danger mb-3 rounded-5 btn-sm" wire:click="deleteUser({{$row->id}})"><i class="fa-duotone fa-trash"></i></button>
                 </td>
             </tr>
