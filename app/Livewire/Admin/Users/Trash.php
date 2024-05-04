@@ -4,12 +4,14 @@ namespace App\Livewire\Admin\Users;
 
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
 use Livewire\WithPagination;
 
 class Trash extends Component
 {
     use WithPagination;
+    use LivewireAlert;
 
     public $users;
     public $search = '';
@@ -46,12 +48,14 @@ class Trash extends Component
 
         $user->forceDelete();
         $this->dispatch('userTrash');
+        $this->alert('success', 'برای همیشه حذف شد.');
     }
     public function recoveryUser($id): void
     {
         $user = User::withTrashed()->where('id',$id)->first();
         $user->restore();
         $this->dispatch('userTrash');
+        $this->alert('success', 'با موفقیت بازیابی شد.');
     }
 
     public function render(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View|\Illuminate\Contracts\Foundation\Application

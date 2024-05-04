@@ -30,8 +30,9 @@
     <script src="{{asset('js/jquery.min.js')}}"></script>
     <script src="{{asset('js/bootstrap.bundle.min.js')}}"></script>
     <script src="{{asset('js/main.js')}}"></script>
-
     @livewireScripts
+    <script src="{{asset('js/sweetalert.js')}}"></script>
+    <x-livewire-alert::scripts />
     {{ $scripts ?? '' }}
 </body>
 </html>

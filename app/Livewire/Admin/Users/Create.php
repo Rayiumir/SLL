@@ -5,6 +5,7 @@ namespace App\Livewire\Admin\Users;
 use App\Models\User;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\ImageManager;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Attributes\On;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
@@ -13,7 +14,7 @@ use Livewire\WithFileUploads;
 class Create extends Component
 {
     use WithFileUploads;
-
+    use LivewireAlert;
     #[Validate('required|min:3')]
     public $name;
     #[Validate('required|email|unique:users,email')]
@@ -42,6 +43,7 @@ class Create extends Component
         }
         $this->resetInput();
         $this->dispatch('userList');
+        $this->alert('success', 'با موفقیت کاربر جدید اضافه شد.');
     }
 
     public function saveImage($file)

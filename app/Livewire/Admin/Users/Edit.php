@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\ImageManager;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Attributes\Rule;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -13,6 +14,7 @@ use Livewire\WithFileUploads;
 class Edit extends Component
 {
     use WithFileUploads;
+    use LivewireAlert;
 
     #[Rule('required', 'min:3')]
     public $name;
@@ -65,7 +67,7 @@ class Edit extends Component
 
         $this->user->save();
         $this->dispatch('userUpdated ');
-
+        $this->alert('success', 'با موفقیت به ویرایش شد.');
     }
 
 
