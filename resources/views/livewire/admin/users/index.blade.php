@@ -28,7 +28,7 @@
     </thead>
     <tbody>
         @foreach($users as $row)
-            <tr>
+            <tr class="text-center">
                 <th scope="row">{{$loop->index+1}}</th>
                 <td>
                     <figure>
@@ -38,8 +38,18 @@
                 <td>{{$row->name}}</td>
                 <td>{{$row->email}}</td>
                 <td>{{$row->mobile}}</td>
-                <td>تست</td>
-                <td>تست</td>
+                <td>
+                    <button type="button" class="btn btn-secondary btn-sm rounded-5">عادی</button>
+                </td>
+                <td wire:click="changeStatusUser({{$row->id}})">
+                    @if($row->status==\App\Enums\UserStatus::Active->value)
+                        <button class="btn btn-success btn-sm btn-sm rounded-5">فعال</button>
+                    @elseif($row->status==\App\Enums\UserStatus::Inactive->value)
+                        <button class="btn btn-secondary btn-sm btn-sm rounded-5">غیر فعال</button>
+                    @elseif($row->status==\App\Enums\UserStatus::Banned->value)
+                        <button class="btn btn-danger btn-sm btn-sm rounded-5">مسدود</button>
+                    @endif
+                </td>
                 <td>{{$row->created_at}}</td>
                 <td class="text-center">
                     <a href="{{ route('users.edit', $row->id) }}" type="button" class="btn btn-secondary mb-3 rounded-5 btn-sm" title="ویرایش کاربر"><i class="fa-duotone fa-edit"></i></a>

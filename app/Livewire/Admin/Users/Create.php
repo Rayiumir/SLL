@@ -41,7 +41,7 @@ class Create extends Component
             ]);
         }
         $this->resetInput();
-        $this->dispatch('userCreated');
+        $this->dispatch('userList');
     }
 
     public function saveImage($file)

@@ -13,7 +13,7 @@ class Trash extends Component
 
     public $users;
     public $search = '';
-    protected $listeners = ['userCreated' => 'refreshData'];
+    protected $listeners = ['userTrash' => 'refreshData'];
 
     public function refreshData(): void
     {
@@ -45,13 +45,13 @@ class Trash extends Component
         }
 
         $user->forceDelete();
-        $this->dispatch('userCreated');
+        $this->dispatch('userTrash');
     }
     public function recoveryUser($id): void
     {
         $user = User::withTrashed()->where('id',$id)->first();
         $user->restore();
-        $this->dispatch('userCreated');
+        $this->dispatch('userTrash');
     }
 
     public function render(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View|\Illuminate\Contracts\Foundation\Application
