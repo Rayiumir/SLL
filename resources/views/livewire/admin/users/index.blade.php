@@ -50,7 +50,7 @@
                         <button class="btn btn-danger btn-sm btn-sm rounded-5">مسدود</button>
                     @endif
                 </td>
-                <td>{{$row->created_at}}</td>
+                <td>{{$row->getCreateAtShamsi()}}</td>
                 <td class="text-center">
                     <a href="{{ route('users.edit', $row->id) }}" type="button" class="btn btn-secondary mb-3 rounded-5 btn-sm" title="ویرایش کاربر"><i class="fa-duotone fa-edit"></i></a>
                     <button type="button" class="btn btn-danger mb-3 rounded-5 btn-sm" wire:click="deleteUser({{$row->id}})" title="انتقال به زباله دان"><i class="fa-duotone fa-trash"></i></button>
