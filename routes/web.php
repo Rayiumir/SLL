@@ -35,4 +35,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function ($router) {
 
     $router->get('/roles', \App\Livewire\Admin\Roles\Index::class)->name('roles.index');
     $router->get('/roles/create', \App\Livewire\Admin\Roles\Create::class);
+
+    // Category
+
+    $router->get('/categories', \App\Livewire\Admin\Category\Index::class)->name('categories.index');
 });

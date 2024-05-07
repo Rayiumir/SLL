@@ -8,6 +8,7 @@
             <div class="d-grid gap-2 mt-3">
                 <a href="{{ route('users.index') }}" type="button" class="btn btn-outline-secondary rounded-5">کاربران</a>
                 <a href="{{ route('roles.index') }}" type="button" class="btn btn-outline-secondary rounded-5">دسترسی ها</a>
+                <a href="{{ route('categories.index') }}" type="button" class="btn btn-outline-secondary rounded-5">دسته بندی</a>
             </div>
         </div>
     </div>
