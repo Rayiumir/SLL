@@ -59,4 +59,9 @@ class User extends Authenticatable
     {
         return new Verta($this->created_at);
     }
+
+    public function categories(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Category::class);
+    }
 }

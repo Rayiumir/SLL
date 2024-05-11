@@ -46,13 +46,13 @@ class Create extends Component
         $this->alert('success', 'با موفقیت کاربر جدید اضافه شد.');
     }
 
-    public function saveImage($file)
+    public function saveImage($image)
     {
-        if ($file){
-            $name = $file->hashName();
+        if ($image){
+            $name = $image->hashName();
 
-            $smallImage = ImageManager::imagick()->read($file->getRealPath());
-            $bigImage = ImageManager::imagick()->read($file->getRealPath());
+            $smallImage = ImageManager::imagick()->read($image->getRealPath());
+            $bigImage = ImageManager::imagick()->read($image->getRealPath());
             $smallImage->resize(256, 256, function ($constraint){
                 $constraint->aspectRatio();
             });

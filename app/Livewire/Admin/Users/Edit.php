@@ -68,6 +68,7 @@ class Edit extends Component
         $this->user->save();
         $this->dispatch('userUpdated ');
         $this->alert('success', 'با موفقیت به ویرایش شد.');
+        $this->redirect(route('users.index'));
     }
 
 

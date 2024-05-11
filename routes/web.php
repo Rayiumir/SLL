@@ -39,4 +39,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function ($router) {
     // Category
 
     $router->get('/categories', \App\Livewire\Admin\Category\Index::class)->name('categories.index');
+    $router->get('/categories/create', \App\Livewire\Admin\Category\Create::class);
+    $router->get('/categories/edit/{id}', \App\Livewire\Admin\Category\Edit::class)->name('categories.edit');
+    $router->get('/categories/trash', \App\Livewire\Admin\Category\Trash::class)->name('categories.trash');
 });

@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('en_title');
             $table->string('slug');
             $table->string('image')->nullable();
-            $table->integer('parent_id')->default(0);
+            $table->unsignedBigInteger('parent_id')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
