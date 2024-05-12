@@ -20,7 +20,7 @@ class Create extends Component
     #[Validate('required|min:3')]
     public $en_title;
     public $slug;
-    public $parent_id;
+    public $category_id;
     public $image;
     public $categories;
 
@@ -40,7 +40,7 @@ class Create extends Component
             'title' => $this->title,
             'en_title' => $this->en_title,
             'slug' => Str::slug($this->en_title),
-            'parent_id' => $this->parent_id,
+            'category_id' => $this->category_id,
             'image' => self::saveImage($this->image)
         ]);
 

@@ -28,7 +28,7 @@
                 </div>
                 <div class="col-md-12">
                     <label for="input3" class="form-label">انتخاب دسته والد</label>
-                    <select class="form-select rounded-5 @error('parent_id') is-invalid @enderror" name="parent_id" wire:model="parent_id" id="input3" aria-label="Default select example">
+                    <select class="form-select rounded-5 @error('category_id') is-invalid @enderror" name="category_id" wire:model="category_id" id="input3" aria-label="Default select example">
                         <option selected value="0">انتخاب کنید ...</option>
                         @foreach($categories as $row)
                             <option value="{{$row->id}}">{{$row->title}}</option>
